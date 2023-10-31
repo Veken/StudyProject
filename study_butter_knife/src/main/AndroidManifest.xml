@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.veken.study_butter_knife">
+
+    <application>
+        <activity
+            android:name="com.veken.study_butter_knife.TestButterKnifeActivity"
+            android:exported="false"
+
+            />
+    </application>
+</manifest>
