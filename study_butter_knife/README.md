@@ -136,3 +136,8 @@ methodBuilder.addStatement("target." + variableName +"= (" + typeMirror + ")" + 
         e.printStackTrace();
     }
 ```
+待遗留问题，因为新版AS对注解的资源id，判定为变量，这块可能需要像ButterKnife一样，修改为R2的资源，这块还得看一下ButterKnife的具体处理是怎么样的
+```
+@BindView(R.id.tv_butter_knife)
+TextView tvButterKnife;
+```
