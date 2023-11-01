@@ -4,9 +4,8 @@
 
     <application>
         <activity
-            android:name="com.veken.study_butter_knife.TestButterKnifeActivity"
-            android:exported="false"
-
-            />
+            android:name=".TestButterKnifeActivity"
+            android:exported="false" />
     </application>
+
 </manifest>

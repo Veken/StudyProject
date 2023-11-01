@@ -34,13 +34,12 @@ import java.util.Set;
 
 /**
  * Created by Veken on 2023/10/30 16:28
- * 注解处理类
+ * ButterKnife
  * @desc
  */
 @AutoService(Process.class)
 public class BindProcessor extends AbstractProcessor {
 
-    private Filer filer;
     //写文件的对象
     private Filer mFiler;
     private Elements mElementUtils;

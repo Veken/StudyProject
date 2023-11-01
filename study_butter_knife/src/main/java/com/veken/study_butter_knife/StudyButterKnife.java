@@ -9,6 +9,7 @@ import com.veken.lib_process.annotaions.OnClick;
 import com.veken.lib_process.annotaions.OnLongClick;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -20,10 +21,35 @@ import java.lang.reflect.Method;
  */
 class StudyButterKnife {
 
-    public static void bind(Activity target) {
-        bindViews(target, target.getClass().getDeclaredFields(), target.findViewById(android.R.id.content));
-        createOnClick(target, target.getClass().getDeclaredMethods(), target.findViewById(android.R.id.content));
-        createOnLongClick(target, target.getClass().getDeclaredMethods(), target.findViewById(android.R.id.content));
+//    public static void bind(Activity target) {
+//        bindViews(target, target.getClass().getDeclaredFields(), target.findViewById(android.R.id.content));
+//        createOnClick(target, target.getClass().getDeclaredMethods(), target.findViewById(android.R.id.content));
+//        createOnLongClick(target, target.getClass().getDeclaredMethods(), target.findViewById(android.R.id.content));
+//    }
+
+    public static void bind(Activity target){
+            try {
+                String clsName = target.getClass().getCanonicalName();
+                Class<?> bindingClass  = Class.forName(clsName + "_ViewBinding");
+                Class activityClass = Class.forName(target.getClass().getCanonicalName());
+                try {
+                    Constructor constructor = bindingClass.getDeclaredConstructor(activityClass);
+                    try {
+                        System.out.println("constructor-----------newInstance- before");
+                        constructor.newInstance(target);
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
     }
 
     public static void bind(final Object obj, View promptsView){

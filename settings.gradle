@@ -15,5 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "StudyProject"
 include ':app'
 include ':lib_process'
-include ':sudy_butter_knife'
+include ':study_butter_knife'
 
